@@ -56,7 +56,9 @@ h3 {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      align-items: center;
+      align-items: baseline;
+      padding-top: 12px;
+      padding-left: 5px;
       svg {
         width: 20px;
         height: 20px;
@@ -79,9 +81,9 @@ h3 {
       width: 90px;
       padding-right: 10px;
     }
-    .edit-mode {
-      padding: 10px;
-    }
+    // .edit-mode {
+    //   padding: 20px;
+    // }
   }
   .note_edit {
     padding: 0;

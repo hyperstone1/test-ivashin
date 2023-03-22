@@ -11,10 +11,10 @@ const TagsFilter = () => {
   useEffect(() => {
     // eslint-disable-next-line
     notes.map((item) => {
-      if (item.note.match(/(#[A-Za-z0-9]+)/g)) {
-        const noteWords = item.note.split(/(#[A-Za-z0-9]+)/g);
+      if (item.note.match(/(#[A-Za-zА-ЯЁа-яё0-9]+)/g)) {
+        const noteWords = item.note.split(/(#[A-Za-zА-ЯЁа-яё0-9]+)/g);
         noteWords.map((obj, idx) =>
-          obj.match(/(#[A-Za-z0-9]+)/g) ? tagsInNotes.push({ id: idx, note: obj }) : null,
+          obj.match(/(#[A-Za-zА-ЯЁа-яё0-9]+)/g) ? tagsInNotes.push({ id: idx, note: obj }) : null,
         );
       }
     });

@@ -27,12 +27,12 @@ const Note = ({ item, deleteNote, putNote }: Item) => {
   };
 
   useEffect(() => {
-    setNoteWithTag(item.note.match(/(#[A-Za-z0-9]+)/g));
-    setRes(item.note.split(/(#[A-Za-z0-9]+)/g));
+    setNoteWithTag(item.note.match(/(#[A-Za-zА-ЯЁа-яё0-9]+)/g));
+    setRes(item.note.split(/(#[A-Za-zА-ЯЁа-яё0-9]+)/g));
   }, [item, notes]);
 
   useEffect(() => {
-    setNote(res.filter((obj) => !obj.match(/(#[A-Za-z0-9]+)/g)).join(''));
+    setNote(res.filter((obj) => !obj.match(/(#[A-Za-zА-ЯЁа-яё0-9]+)/g)).join(''));
   }, [note, res, noteWithTag]);
 
   const changeNotes = () => {
@@ -47,13 +47,13 @@ const Note = ({ item, deleteNote, putNote }: Item) => {
     putNote(id, title);
   };
 
-  const handleOnChange = (id: number, e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setTitle(value);
   };
 
   return (
-    <div className={editMode ? 'note note_edit' : 'note'}>
+    <div className="note">
       <div
         className={editMode ? 'edit-mode container_note' : 'container_note'}
         style={{ position: 'relative' }}
@@ -63,7 +63,7 @@ const Note = ({ item, deleteNote, putNote }: Item) => {
           {editMode ? (
             <Form.Control
               className="control"
-              onChange={(e) => handleOnChange(item.id, e as React.ChangeEvent<HTMLInputElement>)}
+              onChange={(e) => handleOnChange(e as React.ChangeEvent<HTMLInputElement>)}
               type="text"
               value={title}
               autoComplete="off"
